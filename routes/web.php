@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['prefix' => 'suara'], function() {
     Route::get('/', 'SuaraController@index')->name('suara.index');
     Route::get('/create', 'SuaraController@create')->name('suara.create');

@@ -9,7 +9,7 @@ class SuaraController extends Controller
 {
     public function index()
     {
-        $suara = Suara::query()->orderby('suara', 'asc')->get();
+        $suara = Suara::query()->orderby('suara', 'asc')->paginate(5);
         return view('front.suara.index', compact('suara'));
     }
 
