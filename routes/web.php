@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', function() {
+    return redirect()->route('provinsi.index');
+});
 Route::group(['prefix' => 'suara'], function() {
     Route::get('/', 'SuaraController@index')->name('suara.index');
     Route::get('/create', 'SuaraController@create')->name('suara.create');
