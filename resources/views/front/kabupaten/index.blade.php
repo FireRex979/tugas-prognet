@@ -1,10 +1,10 @@
-@extends('layouts.template') @section('title', 'Suara') @section('content')
+@extends('layouts.template') @section('title', 'Kabupaten') @section('content')
 <div class="row">
 	<div class="col-12">
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
 				<div class="d-flex justify-content-between align-items-center">
-					<h6 class="m-0 font-weight-bold text-primary">Data Suara</h6> <a href="{{ route('suara.create') }}" class="btn btn-success">Tambah</a></div>
+					<h6 class="m-0 font-weight-bold text-primary">Data Kabupaten</h6> <a href="{{ route('kabupaten.create') }}" class="btn btn-success">Tambah</a></div>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -12,31 +12,42 @@
 						<thead>
 							<tr>
 								<th style="width: 50px">No</th>
-								<th>Suara</th>
+								<th>Nama Provinsi</th>
+								<th>Nama Kabupaten</th>
+								<th>Kode POS</th>
 								<th class="text-center" style="width: 150px">Action</th>
 							</tr>
 						</thead>
 						<tfoot>
 							<tr>
 								<th style="width: 50px">No</th>
-								<th>Suara</th>
+								<th>Nama Provinsi</th>
+								<th>Nama Kabupaten</th>
+								<th>Kode POS</th>
 								<th class="text-center" style="width: 150px">Action</th>
 							</tr>
 						</tfoot>
-						<tbody> @foreach ($suara as $item)
+						<tbody>
+							@foreach ($kabupaten as $item)
 							<tr style="width: 50px">
 								<td>{{ $loop->iteration }}</td>
-								<td>{{ $item->suara }}</td>
-								<td class="text-center" style="width: 150px"> <a class="btn btn-sm btn-primary" href="{{ route('suara.show', $item->id) }}"><i class="fa fa-eye"></i></a> <a class="btn btn-sm btn-warning" href="{{ route('suara.edit', $item->id) }}"><i class="fa fa-edit"></i></a>
+								<td>{{ $item->provinsi->province ?? '-' }}</td>
+								<td>{{ $item->city_name }}</td>
+								<td>{{ $item->pos_code }}</td>
+								<td class="text-center" style="width: 150px">
+									<a class="btn btn-sm btn-warning" href="{{ route('kabupaten.edit', $item->id) }}"><i class="fa fa-edit"></i></a>
 									<button class="btn btn-sm btn-danger" onclick="destroy('{{ $item->id }}')" type="button"><i class="fa fa-trash"></i></button>
 								</td>
-							</tr> @endforeach</tbody>
+							</tr>
+							@endforeach</tbody>
 					</table>
-				</div> {!! $suara->links() !!}</div>
+				</div>
+				{!! $kabupaten->links() !!}
+			</div>
 		</div>
 	</div>
 </div>
-<form action="{{ route('suara.delete') }}" id="form-delete" method="POST"> @csrf
+<form action="{{ route('kabupaten.delete') }}" id="form-delete" method="POST"> @csrf
 	<input type="hidden" name="id" id="id-delete">
 </form> @endsection @push('js')
 <script>

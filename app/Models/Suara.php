@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Suara extends Model
 {
+    use SoftDeletes;
 
     protected $table = 'suaras';
 

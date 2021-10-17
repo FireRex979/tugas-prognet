@@ -31,3 +31,21 @@ Route::group(['prefix' => 'animal'], function() {
     Route::post('/update/{id}', 'AnimalController@update')->name('animal.update');
     Route::post('/delete', 'AnimalController@delete')->name('animal.delete');
 });
+Route::group(['prefix' => 'provinsi'], function() {
+    Route::get('/', 'ProvinsiController@index')->name('provinsi.index');
+    Route::get('/create', 'ProvinsiController@create')->name('provinsi.create');
+    Route::post('/store', 'ProvinsiController@store')->name('provinsi.store');
+    Route::get('/show/{id}', 'ProvinsiController@show')->name('provinsi.show');
+    Route::get('/edit/{id}', 'ProvinsiController@edit')->name('provinsi.edit');
+    Route::post('/update/{id}', 'ProvinsiController@update')->name('provinsi.update');
+    Route::post('/delete', 'ProvinsiController@delete')->name('provinsi.delete');
+});
+Route::group(['prefix' => 'kabupaten'], function() {
+    Route::get('/', 'KabupatenController@index')->name('kabupaten.index');
+    Route::get('/create', 'KabupatenController@create')->name('kabupaten.create');
+    Route::post('/store', 'KabupatenController@store')->name('kabupaten.store');
+    Route::get('/show/{id}', 'KabupatenController@show')->name('kabupaten.show');
+    Route::get('/edit/{id}', 'KabupatenController@edit')->name('kabupaten.edit');
+    Route::post('/update/{id}', 'KabupatenController@update')->name('kabupaten.update');
+    Route::post('/delete', 'KabupatenController@delete')->name('kabupaten.delete');
+});

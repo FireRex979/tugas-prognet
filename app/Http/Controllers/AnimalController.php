@@ -12,7 +12,7 @@ class AnimalController extends Controller
 {
     public function index()
     {
-        $animal = Animal::query()->orderby('nama', 'asc')->paginate(5);
+        $animal = Animal::query()->with(['suara'])->orderby('nama', 'asc')->paginate(5);
         return view('front.animal.index', compact('animal'));
     }
 
