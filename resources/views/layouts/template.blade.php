@@ -40,6 +40,7 @@
 						<a class="collapse-item @if(Request::segment(1) == 'suara') active @endif" href="{{ route('suara.index') }}">Suara Binatang</a>
 						<a class="collapse-item @if(Request::segment(1) == 'provinsi') active @endif" href="{{ route('provinsi.index') }}">Provinsi</a>
 						<a class="collapse-item @if(Request::segment(1) == 'kabupaten') active @endif" href="{{ route('kabupaten.index') }}">Kabupaten</a>
+						<a class="collapse-item @if(Request::segment(1) == 'kecamatan') active @endif" href="{{ route('kecamatan.index') }}">Kecamatan</a>
 					</div>
 				</div>
 			</li>

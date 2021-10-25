@@ -51,3 +51,13 @@ Route::group(['prefix' => 'kabupaten'], function() {
     Route::post('/update/{id}', 'KabupatenController@update')->name('kabupaten.update');
     Route::post('/delete', 'KabupatenController@delete')->name('kabupaten.delete');
 });
+Route::group(['prefix' => 'kecamatan'], function() {
+    Route::get('/', 'KecamatanController@index')->name('kecamatan.index');
+    Route::get('/get-kabupaten', 'KecamatanController@getKabupaten')->name('kecamatan.get-kabupaten');
+    Route::get('/create', 'KecamatanController@create')->name('kecamatan.create');
+    Route::post('/store', 'KecamatanController@store')->name('kecamatan.store');
+    Route::get('/show/{id}', 'KecamatanController@show')->name('kecamatan.show');
+    Route::get('/edit/{id}', 'KecamatanController@edit')->name('kecamatan.edit');
+    Route::post('/update/{id}', 'KecamatanController@update')->name('kecamatan.update');
+    Route::post('/delete', 'KecamatanController@delete')->name('kecamatan.delete');
+});
